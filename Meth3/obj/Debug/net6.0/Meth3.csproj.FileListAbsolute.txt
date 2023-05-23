@@ -13,3 +13,14 @@ C:\Users\Deadcat\RiderProjects\Meth3\Meth3\obj\Debug\net6.0\refint\Meth3.dll
 C:\Users\Deadcat\RiderProjects\Meth3\Meth3\obj\Debug\net6.0\Meth3.pdb
 C:\Users\Deadcat\RiderProjects\Meth3\Meth3\obj\Debug\net6.0\Meth3.genruntimeconfig.cache
 C:\Users\Deadcat\RiderProjects\Meth3\Meth3\obj\Debug\net6.0\ref\Meth3.dll
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\obj\Debug\net6.0\Meth3.csproj.CopyComplete

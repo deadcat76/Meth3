@@ -61,4 +61,25 @@ public class UnitTest
         CollectionAssert.AreEqual(games, userGameManager.GetAllGamesByUser(ugDictionary, user1));
         
     }
+    
+    [TestMethod]
+    public void AddSameGameTest()
+    {
+        Game game1 = new Game()
+        {
+            Creator_id = 0, ID = 0, Description = "", Date_Release = "20.03.2007", Date_Update = "20.08.2008", Removed = false,
+            Photogame_id = 0, Genre_id = 3, Name = "Fable"
+        };
+        Game game2 = new Game()
+        {
+            Creator_id = 0, ID = 0, Description = "", Date_Release = "20.03.2007", Date_Update = "20.08.2008", Removed = false,
+            Photogame_id = 0, Genre_id = 3, Name = "Fable"
+        };
+        Rep2<Game> gamerepository = new Rep2<Game>();
+        gamerepository.Add(game1);
+        gamerepository.Add(game2);
+        int x = 1;
+        
+        Assert.AreEqual(x, gamerepository.GetAll().Count);
+    }
 }

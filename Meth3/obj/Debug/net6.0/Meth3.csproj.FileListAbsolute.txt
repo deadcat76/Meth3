@@ -1,0 +1,15 @@
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\Meth3.exe
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\Meth3.deps.json
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\Meth3.runtimeconfig.json
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\Meth3.dll
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\Meth3.pdb
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\obj\Debug\net6.0\Meth3.csproj.AssemblyReference.cache
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\obj\Debug\net6.0\Meth3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\obj\Debug\net6.0\Meth3.AssemblyInfoInputs.cache
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\obj\Debug\net6.0\Meth3.AssemblyInfo.cs
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\obj\Debug\net6.0\Meth3.csproj.CoreCompileInputs.cache
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\obj\Debug\net6.0\Meth3.dll
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\obj\Debug\net6.0\refint\Meth3.dll
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\obj\Debug\net6.0\Meth3.pdb
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\obj\Debug\net6.0\Meth3.genruntimeconfig.cache
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\obj\Debug\net6.0\ref\Meth3.dll

@@ -13,67 +13,77 @@
 
 using (DataAccessLayer.Context db = new DataAccessLayer.Context())
 {
-    // #region Создаем объекты классов
-    // User user1 = new User()
-    // {
-    //     Date_create = "16.04.2023", Date_update = "16.05.2023", is_Blocked = false, Email = "123@gmail.com",
-    //     Password = "12345678", Right_id = 1, Login = "user1"
-    // };
-    // User user2 = new User()
-    // {
-    //     Date_create = "16.04.2023", Date_update = "16.05.2023", is_Blocked = false,  Email = "124@gmail.com",
-    //     Password = "22345678", Right_id = 1, Login = "user2"
-    // };
-    // User user3 = new User()
-    // {
-    //     Date_create = "16.04.2023", Date_update = "16.05.2023", is_Blocked = false, Email = "125@gmail.com",
-    //     Password = "32345678", Right_id = 1, Login = "user3"
-    // };
-    // User user4 = new User()
-    // {
-    //     Date_create = "16.04.2023", Date_update = "16.05.2023", is_Blocked = false, Email = "126@gmail.com",
-    //     Password = "42345678", Right_id = 1, Login = "user4"
-    // };
-    // Game game1 = new Game()
-    // {
-    //     Creator_id = 0, Description = "", Date_Release = "20.03.2007", Date_Update = "20.08.2008", Removed = false,
-    //     Photogame_id = 0, Genre_id = 3, Name = "Fable"
-    // };
-    // Game game2 = new Game()
-    // {
-    //     Creator_id = 1, Description = "", Date_Release = "20.03.2007", Date_Update = "20.08.2008", Removed = false,
-    //     Photogame_id = 3, Genre_id = 2, Name = "Diablo"
-    // };
-    // Game game3 = new Game()
-    // {
-    //     Creator_id = 3, Description = "", Date_Release = "20.03.2007", Date_Update = "20.08.2008", Removed = false,
-    //     Photogame_id = 5, Genre_id = 3, Name = "Space Rangers"
-    // };
-    // Game game4 = new Game()
-    // {
-    //     Creator_id = 2, Description = "", Date_Release = "20.03.2007", Date_Update = "20.08.2008", Removed = false,
-    //     Photogame_id = 1, Genre_id = 1, Name = "Pac-Man"
-    //
-    // };
-    // UserGame ug = new UserGame() { User = user1, Game = game1 };
-    // UserGame ug1 = new UserGame() { User = user2, Game = game2 };
-    // UserGame ug2 = new UserGame() { User = user3, Game = game3 };
-    // UserGame ug3 = new UserGame() { User = user4, Game = game4 };
-    // UserGame ug4 = new UserGame() { User = user4, Game = game2 };
-    //
-    //
-    // #endregion
-    //
-    // db.Games.AddRange(game1,game2, game3, game4); // Добавляем в бд игры
-    // db.Users.AddRange(user1, user2, user3, user4); // Добавляем в бд юзеров
-    // db.UserGames.AddRange(ug,ug1,ug2,ug3, ug4); // Добавляем в бд юзеров с их играми
-    // db.SaveChanges(); // Сохранение изменений
+    #region Создаем объекты классов
+    Right right = new Right() { right = 0 };
+    Right right1 = new Right() { right = 1 };
+    User user1 = new User()
+    {
+     Date_create = "16.04.2023", Date_update = "16.05.2023", is_Blocked = false, Email = "123@gmail.com",
+     Password = "12345678", Right_ID = 1, Login = "user1", Right = right 
+    };
+    User user2 = new User()
+    {
+     Date_create = "16.04.2023", Date_update = "16.05.2023", is_Blocked = false,  Email = "124@gmail.com",
+     Password = "22345678", Right_ID = 1, Login = "user2", Right = right
+    };
+    User user3 = new User()
+    {
+     Date_create = "16.04.2023", Date_update = "16.05.2023", is_Blocked = false, Email = "125@gmail.com",
+     Password = "32345678", Right_ID = 1, Login = "user3", Right = right1
+    };
+    User user4 = new User()
+    {
+     Date_create = "16.04.2023", Date_update = "16.05.2023", is_Blocked = false, Email = "126@gmail.com",
+     Password = "42345678", Right_ID = 1, Login = "user4", Right = right
+    };
+    Game game1 = new Game()
+    {
+     Creator_id = 0, Description = "", Date_Release = "20.03.2007", Date_Update = "20.08.2008", Removed = false,
+     Photogame_id = 0, Genre_id = 3, Name = "Fable"
+    };
+    Game game2 = new Game()
+    {
+     Creator_id = 1, Description = "", Date_Release = "20.03.2007", Date_Update = "20.08.2008", Removed = false,
+     Photogame_id = 3, Genre_id = 2, Name = "Diablo"
+    };
+    Game game3 = new Game()
+    {
+     Creator_id = 3, Description = "", Date_Release = "20.03.2007", Date_Update = "20.08.2008", Removed = false,
+     Photogame_id = 5, Genre_id = 3, Name = "Space Rangers"
+    };
+    Game game4 = new Game()
+    {
+     Creator_id = 2, Description = "", Date_Release = "20.03.2007", Date_Update = "20.08.2008", Removed = false,
+     Photogame_id = 1, Genre_id = 1, Name = "Pac-Man"
 
-    // foreach (var usergames in db.UserGames.ToList())
-    // {
-    //     Console.WriteLine($"{usergames.User?.Login} играл в {usergames.Game?.Name}");
-    // }
-    //
+    };
+    UserGame ug = new UserGame() { User = user1, Game = game1 };
+    UserGame ug1 = new UserGame() { User = user2, Game = game2 };
+    UserGame ug2 = new UserGame() { User = user3, Game = game3 };
+    UserGame ug3 = new UserGame() { User = user4, Game = game4 };
+    UserGame ug4 = new UserGame() { User = user4, Game = game2 };
+
+    Achievements achievements1 = new Achievements() {Name = "Первый вход в игру", Game = game1};
+    Achievements achievements2 = new Achievements() {Name = "Первое знакомство", Game = game2};
+    Achievements achievements3 = new Achievements() {Name = "Стриккк", Game = game3};
+    Achievements achievements4 = new Achievements() {Name = "Кто я?", Game = game4};
+
+    User_Achieve userAchieve = new User_Achieve() {User = user1, Achievements = achievements2};
+    User_Achieve userAchieve1 = new User_Achieve() {User = user2, Achievements = achievements3};
+    User_Achieve userAchieve2 = new User_Achieve() {User = user1, Achievements = achievements4};
+     
+    #endregion
+    
+    db.Games.AddRange(game1,game2, game3, game4); // Добавляем в бд игры
+    db.Users.AddRange(user1, user2, user3, user4); // Добавляем в бд юзеров
+    db.UserGames.AddRange(ug,ug1,ug2,ug3, ug4); // Добавляем в бд юзеров с их играми
+    db.SaveChanges(); // Сохранение изменений
+
+    foreach (var usergames in db.UserGames.ToList())
+    {
+        Console.WriteLine($"{usergames.User?.Login} играл в {usergames.Game?.Name}");
+    }
+    
     foreach (var users in db.GetAllUsers())
     {
         Console.WriteLine(users.Login);

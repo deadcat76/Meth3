@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<people>
+  <user login="user1">
+    <email>123@gmail.com</email>
+    <IsBlocked>False</IsBlocked>
+  </user>
+  <user login="user2">
+    <email>124@gmail.com</email>
+    <IsBlocked>False</IsBlocked>
+  </user>
+  <user login="user3">
+    <email>125@gmail.com</email>
+    <IsBlocked>False</IsBlocked>
+  </user>
+  <user login="user4">
+    <email>126@gmail.com</email>
+    <IsBlocked>False</IsBlocked>
+  </user>
+</people>

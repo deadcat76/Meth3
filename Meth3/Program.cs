@@ -63,14 +63,14 @@ using (DataAccessLayer.Context db = new DataAccessLayer.Context())
     UserGame ug3 = new UserGame() { User = user4, Game = game4 };
     UserGame ug4 = new UserGame() { User = user4, Game = game2 };
 
-    Achievements achievements1 = new Achievements() {Name = "Первый вход в игру", Game = game1};
-    Achievements achievements2 = new Achievements() {Name = "Первое знакомство", Game = game2};
-    Achievements achievements3 = new Achievements() {Name = "Стриккк", Game = game3};
-    Achievements achievements4 = new Achievements() {Name = "Кто я?", Game = game4};
+    Achievement achievements1 = new Achievement() {Name = "Первый вход в игру", Game = game1};
+    Achievement achievements2 = new Achievement() {Name = "Первое знакомство", Game = game2};
+    Achievement achievements3 = new Achievement() {Name = "Стриккк", Game = game3};
+    Achievement achievements4 = new Achievement() {Name = "Кто я?", Game = game4};
 
-    User_Achieve userAchieve = new User_Achieve() {User = user1, Achievements = achievements2};
-    User_Achieve userAchieve1 = new User_Achieve() {User = user2, Achievements = achievements3};
-    User_Achieve userAchieve2 = new User_Achieve() {User = user1, Achievements = achievements4};
+    User_Achieve userAchieve = new User_Achieve() {User = user1, Achievement = achievements2};
+    User_Achieve userAchieve1 = new User_Achieve() {User = user2, Achievement = achievements3};
+    User_Achieve userAchieve2 = new User_Achieve() {User = user1, Achievement = achievements4};
      
     #endregion
     

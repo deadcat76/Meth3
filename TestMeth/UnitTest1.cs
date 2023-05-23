@@ -15,7 +15,7 @@ public class UnitTest
         User user1 = new User()
         {
             Date_create = "16.04.2023", Date_update = "16.05.2023", is_Blocked = false, ID = 0, Email = "123@gmail.com",
-            Password = "12345678", Right_id = 1, Login = "user1"
+            Password = "12345678", Right_ID = 1, Login = "user1"
         };
         User_Game_Manager userGameManager = new User_Game_Manager();
         List<Game> games = new List<Game>();
@@ -45,7 +45,7 @@ public class UnitTest
         User user1 = new User()
         {
             Date_create = "16.04.2023", Date_update = "16.05.2023", is_Blocked = false, ID = 0, Email = "123@gmail.com",
-            Password = "12345678", Right_id = 1, Login = "user1"
+            Password = "12345678", Right_ID = 1, Login = "user1"
         };
         Dictionary<User, List<Game>> ugDictionary = new Dictionary<User, List<Game>>();
         User_Game_Manager userGameManager = new User_Game_Manager();

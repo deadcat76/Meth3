@@ -11,35 +11,37 @@ public class User : IDomainObject
     public bool is_Blocked { get; set; }
     public int Right_id { get; set; }
 
-    public override bool Equals(object? obj)
-    {
-        if (_equals(obj as User))
-        {
-            return true;
-        }
+    public List<UserGame> UserGames { get; set; } = new();
 
-        return false;
-    }
-
-    protected bool _equals(User other)
-    {
-        return ID == other.ID 
-               && Login == other.Login 
-               && Password == other.Password 
-               && Email == other.Email 
-               && Date_create == other.Date_create 
-               && Date_update == other.Date_update 
-               && is_Blocked == other.is_Blocked 
-               && Right_id == other.Right_id;
-    }
-
-    public override int GetHashCode()
-    {
-        return HashCode.Combine(ID, Login, Password, Email, Date_create, Date_update, is_Blocked, Right_id);
-    }
+    // public override bool Equals(object? obj)
+    // {
+    //     if (_equals(obj as User))
+    //     {
+    //         return true;
+    //     }
+    //
+    //     return false;
+    // }
+    //
+    // protected bool _equals(User other)
+    // {
+    //     return ID == other.ID 
+    //            && Login == other.Login 
+    //            && Password == other.Password 
+    //            && Email == other.Email 
+    //            && Date_create == other.Date_create 
+    //            && Date_update == other.Date_update 
+    //            && is_Blocked == other.is_Blocked 
+    //            && Right_id == other.Right_id;
+    // }
+    //
+    // public override int GetHashCode()
+    // {
+    //     return HashCode.Combine(ID, Login, Password, Email, Date_create, Date_update, is_Blocked, Right_id);
+    // }
 }
 
-public class Game
+public class Game : IDomainObject
 {
     public int ID { get; set; }
     public string Name { get; set; }
@@ -51,43 +53,54 @@ public class Game
     public int Genre_id { get; set; }
     public int Photogame_id { get; set; }
 
-    public override bool Equals(object? obj)
-    {
-        if (_equals(obj as Game))
-        {
-            return true;
-        }
+    public List<UserGame> UserGames { get; set; } = new();
 
-        return false;
-    }
+    // public override bool Equals(object? obj)
+    // {
+    //     if (_equals(obj as Game))
+    //     {
+    //         return true;
+    //     }
+    //
+    //     return false;
+    // }
+    //
+    // protected bool _equals(Game other)
+    // {
+    //     return ID == other.ID 
+    //            && Name == other.Name 
+    //            && Description == other.Description 
+    //            && Date_Release == other.Date_Release 
+    //            && Date_Update == other.Date_Update 
+    //            && Removed == other.Removed 
+    //            && Creator_id == other.Creator_id 
+    //            && Genre_id == other.Genre_id 
+    //            && Photogame_id == other.Photogame_id;
+    // }
+    //
+    // public override int GetHashCode()
+    // {
+    //     var hashCode = new HashCode();
+    //     hashCode.Add(ID);
+    //     hashCode.Add(Name);
+    //     hashCode.Add(Description);
+    //     hashCode.Add(Date_Release);
+    //     hashCode.Add(Date_Update);
+    //     hashCode.Add(Removed);
+    //     hashCode.Add(Creator_id);
+    //     hashCode.Add(Genre_id);
+    //     hashCode.Add(Photogame_id);
+    //     return hashCode.ToHashCode();
+    // }
+}
 
-    protected bool _equals(Game other)
-    {
-        return ID == other.ID 
-               && Name == other.Name 
-               && Description == other.Description 
-               && Date_Release == other.Date_Release 
-               && Date_Update == other.Date_Update 
-               && Removed == other.Removed 
-               && Creator_id == other.Creator_id 
-               && Genre_id == other.Genre_id 
-               && Photogame_id == other.Photogame_id;
-    }
-
-    public override int GetHashCode()
-    {
-        var hashCode = new HashCode();
-        hashCode.Add(ID);
-        hashCode.Add(Name);
-        hashCode.Add(Description);
-        hashCode.Add(Date_Release);
-        hashCode.Add(Date_Update);
-        hashCode.Add(Removed);
-        hashCode.Add(Creator_id);
-        hashCode.Add(Genre_id);
-        hashCode.Add(Photogame_id);
-        return hashCode.ToHashCode();
-    }
+public class UserGame : IDomainObject
+{
+    public int ID { get; set; }
+    public int User_ID { get; set; }
+    public User? User { get; set; }
+    public int Game_ID { get; set; }
+    public Game? Game { get; set; }
 }
 
 public class Achievements

@@ -90,7 +90,7 @@ public class Game
     }
 }
 
-public class Achievements
+public record Achievements
 {
     public int id;
     public int game_id;
@@ -105,7 +105,7 @@ public record Right
     public Right(byte _right) => right = _right;
 }
 
-public class User_Achieve
+public record User_Achieve
 {
     public int id;
     public int user_id;

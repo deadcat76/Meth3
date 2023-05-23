@@ -11,7 +11,8 @@ public class User : IDomainObject
     public bool is_Blocked { get; set; }
     public int Right_id { get; set; }
 
-    public List<UserGame> UserGames { get; set; } = new();
+    public List<UserGame> UserGames { get; set; } = new(); // Установка зависимости, в данном случае представление
+                                                           // User будет главной сущностью по отношению к UserGame
 
     // public override bool Equals(object? obj)
     // {
@@ -53,7 +54,8 @@ public class Game : IDomainObject
     public int Genre_id { get; set; }
     public int Photogame_id { get; set; }
 
-    public List<UserGame> UserGames { get; set; } = new();
+    public List<UserGame> UserGames { get; set; } = new(); // Установка зависимости, в данном случае представление
+                                                           // Game будет главной сущностью по отношению к UserGame
 
     // public override bool Equals(object? obj)
     // {
@@ -97,10 +99,10 @@ public class Game : IDomainObject
 public class UserGame : IDomainObject
 {
     public int ID { get; set; }
-    public int User_ID { get; set; }
-    public User? User { get; set; }
-    public int Game_ID { get; set; }
-    public Game? Game { get; set; }
+    public int User_ID { get; set; } // Внешний ключ
+    public User? User { get; set; } // Навигационное свойство
+    public int Game_ID { get; set; } // Внешний ключ
+    public Game? Game { get; set; } // Навигационное свойство
 }
 
 public class Achievements

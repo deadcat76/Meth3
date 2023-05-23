@@ -29,17 +29,20 @@ public class UnitTest
     {
         Game game1 = new Game()
         {
-            Creator_id = 0, ID = 0, Description = "", Date_Release = "20.03.2007", Date_Update = "20.08.2008", Removed = false,
+            Creator_id = 0, ID = 0, Description = "", Date_Release = "20.03.2007", Date_Update = "20.08.2008",
+            Removed = false,
             Photogame_id = 0, Genre_id = 3, Name = "Fable"
         };
         Game game2 = new Game()
         {
-            Creator_id = 1, ID = 1, Description = "", Date_Release = "20.03.2007", Date_Update = "20.08.2008", Removed = false,
+            Creator_id = 1, ID = 1, Description = "", Date_Release = "20.03.2007", Date_Update = "20.08.2008",
+            Removed = false,
             Photogame_id = 3, Genre_id = 2, Name = "Diablo"
         };
         Game game3 = new Game()
         {
-            Creator_id = 3, ID = 3, Description = "", Date_Release = "20.03.2007", Date_Update = "20.08.2008", Removed = false,
+            Creator_id = 3, ID = 3, Description = "", Date_Release = "20.03.2007", Date_Update = "20.08.2008",
+            Removed = false,
             Photogame_id = 5, Genre_id = 3, Name = "Space Rangers"
         };
         User user1 = new User()
@@ -53,12 +56,12 @@ public class UnitTest
         games.Add(game1);
         games.Add(game2);
         games.Add(game3);
-        
+
         userGameManager.AddGametoUser(ugDictionary, game1, user1);
         userGameManager.AddGametoUser(ugDictionary, game2, user1);
         userGameManager.AddGametoUser(ugDictionary, game3, user1);
-        
+
         CollectionAssert.AreEqual(games, userGameManager.GetAllGamesByUser(ugDictionary, user1));
-        
+
     }
 }

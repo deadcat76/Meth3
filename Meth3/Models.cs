@@ -128,6 +128,25 @@ public class User_Game_Manager
         else ug.Add(user, gamelist);
     }
 
+    public void AddGame(List<Game> game_rep, Game game)
+    {
+        if (game_rep.Contains(game))
+        {
+            Console.WriteLine("Данная игра уже существует в нашей библиотеке");
+        }
+        else game_rep.Add(game);
+        
+    }
+
+    public void AddUser(List<User> user_rep, User user)
+    {
+        if (user_rep.Contains(user))
+        {
+            Console.WriteLine("Вы пытаетесь добавить уже существующего пользователя");
+        }
+        else user_rep.Add(user);
+    }
+
     public List<Game> GetAllGamesByUser(Dictionary<User, List<Game>> ug, User user)
     {
         return ug[user];

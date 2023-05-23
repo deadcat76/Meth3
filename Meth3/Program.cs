@@ -56,6 +56,9 @@ Rep2<Game> game_repository = new Rep2<Game>();
 Rep2<Achievements> achieve_repository = new Rep2<Achievements>();
 Rep2<User_Achieve> us_ach_repository = new Rep2<User_Achieve>();
 
+User_Game_Manager userGameManager = new User_Game_Manager();
+
+
 user_repository.Add(user1);
 user_repository.Add(user2);
 user_repository.Add(user3);

@@ -10,7 +10,11 @@ public class Rep2 <T> : Repository<T>
 
     public override void Add(T t)
     {
-        rep.Add(t);
+        if (rep.Contains(t))
+        {
+            Console.WriteLine("Вы пытаетесь добавить уже существующую запись");
+        }
+        else rep.Add(t);
     }
 
     public override void RemoveById(int id)

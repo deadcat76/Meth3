@@ -12,7 +12,7 @@ public class DataAccessLayer
 
         public Context()
         {
-            //Database.EnsureDeleted(); // Удаляем старую базу для того, чтобы при проверке не было ошибок
+            Database.EnsureDeleted(); // Удаляем старую базу для того, чтобы при проверке не было ошибок
             Database.EnsureCreated(); // Если не создана база, то создаем
         }
 

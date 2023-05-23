@@ -79,20 +79,20 @@ using (DataAccessLayer.Context db = new DataAccessLayer.Context())
     db.UserGames.AddRange(ug,ug1,ug2,ug3, ug4); // Добавляем в бд юзеров с их играми
     db.SaveChanges(); // Сохранение изменений
 
-    foreach (var usergames in db.UserGames.ToList())
-    {
-        Console.WriteLine($"{usergames.User?.Login} играл в {usergames.Game?.Name}");
-    }
-    
-    foreach (var users in db.GetAllUsers())
-    {
-        Console.WriteLine(users.Login);
-    }
-    Console.WriteLine();
-    foreach (var users in db.FindUsersWithSameGames())
-    {
-        Console.WriteLine(users.Login);
-    }
+    // foreach (var usergames in db.UserGames.ToList())
+    // {
+    //     Console.WriteLine($"{usergames.User?.Login} играл в {usergames.Game?.Name}");
+    // }
+    //
+    // foreach (var users in db.GetAllUsers()) 
+    // {
+    //     Console.WriteLine(users.Login);
+    // }
+    // Console.WriteLine();
+    // foreach (var users in db.FindUsersWithSameGames())
+    // {
+    //     Console.WriteLine(users.Login);
+    // }
 
 }
 

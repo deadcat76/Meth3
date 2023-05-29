@@ -1,10 +1,8 @@
-﻿using System.Xml;
-
-namespace Meth3;
-
-
+﻿namespace Meth3;
 using System.Xml.Linq;
-
+using System.Xml;
+using System.Text.Json;
+using System.Reflection;
 public class UseCase
 {
     public void XmlAddUser(User _user, XElement root)
@@ -38,5 +36,42 @@ public class UseCase
         XmlElement? xRoot = xDoc.DocumentElement; //выбор дочерних элементов
         XmlNodeList nodes = xRoot?.SelectNodes("*");
         return nodes;
+    }
+
+    public async Task JsonSaveUser(User user)
+    {
+        
+        using (FileStream fs = new FileStream("user.json", FileMode.OpenOrCreate))
+        {
+            await JsonSerializer.SerializeAsync<User>(fs, user);
+            Console.WriteLine("User has been saved to file");
+        }
+    }
+
+    public async Task JsonGetUsers()
+    {
+        using (FileStream fs = new FileStream("user.json", FileMode.OpenOrCreate))
+        {
+            User? user = await JsonSerializer.DeserializeAsync<User>(fs);
+            Console.WriteLine($"Login: {user?.Login} Email: {user?.Email}");
+        }
+    }
+
+    public async Task JsonSaveGame(Game game)
+    {
+        using (FileStream fs = new FileStream("game.json", FileMode.OpenOrCreate))
+        {
+            await JsonSerializer.SerializeAsync<Game>(fs, game);
+            Console.WriteLine("Game has been saved to file");
+        }
+    }
+
+    public async Task JsonGetGames()
+    {
+        using (FileStream fs = new FileStream("game.json", FileMode.OpenOrCreate))
+        {
+            Game? game = await JsonSerializer.DeserializeAsync<Game>(fs);
+            Console.WriteLine($"Name: {game?.Name} DateRelease: {game?.Date_Release}");
+        }
     }
 }

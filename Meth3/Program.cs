@@ -1,7 +1,6 @@
-﻿using Meth3;
-using System.Xml;
+﻿using System.Xml;
+using Meth3;
 using System.Xml.Linq;
-
 
 using (DataAccessLayer.Context db = new DataAccessLayer.Context())
 {
@@ -151,74 +150,43 @@ using (DataAccessLayer.Context db = new DataAccessLayer.Context())
 
 
 #endregion
-// #region Добавление в XML данных из БД
-// using (DataAccessLayer.Context db = new DataAccessLayer.Context())
-// {
-//     var users = db.Users.ToList();
-//     XDocument xdoc = new XDocument();
-//     XElement people = new XElement("people");
-//     foreach (var _user in users)
-//     {
-//         XmlAddUser(_user, people);
-//     }
-//     xdoc.Add(people);
-//     xdoc.Save("C:\\Users\\Deadcat\\RiderProjects\\Meth3\\Meth3\\XmlDirectory\\people.xml");
-//     
-// }
-//
-// using (DataAccessLayer.Context db = new DataAccessLayer.Context())
-// {
-//     var games = db.Games.ToList();
-//     XDocument xdoc = new XDocument();
-//     XElement people = new XElement("game");
-//     foreach (var _game in games)
-//     {
-//         XmlAddGame(_game, people);
-//     }
-//     xdoc.Add(people);
-//     xdoc.Save("C:\\Users\\Deadcat\\RiderProjects\\Meth3\\Meth3\\XmlDirectory\\game.xml");
-//     
-// }
-//
-//
-// #endregion
-// #region Методы добавления
-// void XmlAddUser(User _user, XElement root)
-// {
-//     XElement user = new XElement("user");
-//     XAttribute userNameAttr = new XAttribute("login", $"{_user.Login}");
-//     XElement userEmailElement = new XElement("email", $"{_user.Email}");
-//     XElement userIsBlockedElement = new XElement("IsBlocked", $"{_user.is_Blocked}");
-//     user.Add(userNameAttr);
-//     user.Add(userEmailElement);
-//     user.Add(userIsBlockedElement);
-//     root.Add(user);
-// }
-//
-// void XmlAddGame(Game _game, XElement root)
-// {
-//     XElement game = new XElement("game");
-//     XAttribute gameNameAttr = new XAttribute("name", $"{_game.Name}");
-//     XElement gameDescriptionElement = new XElement("description", $"{_game.Description}");
-//     XElement gameDateReleaseElement = new XElement("date_release", $"{_game.Date_Release}");
-//     game.Add(gameNameAttr);
-//     game.Add(gameDescriptionElement);
-//     game.Add(gameDateReleaseElement);
-//     root.Add(game);
-// }
-// #endregion
-// #region Чтение из XML
-//
-// XmlDocument xDoc = new XmlDocument();
-// xDoc.Load("C:\\Users\\Deadcat\\RiderProjects\\Meth3\\Meth3\\XmlDirectory\\people.xml");
-// XmlElement? xRoot = xDoc.DocumentElement;
-// //выбор дочерних элементов
-// XmlNodeList nodes = xRoot?.SelectNodes("*");
-// if (nodes is not null)
-// {
-//     foreach (XmlNode node in nodes)
-//     {
-//         Console.WriteLine(node.OuterXml);
-//     }
-// }
-// #endregion
+#region Добавление в XML данных из БД
+
+UseCase xmlusecase = new UseCase();
+using (DataAccessLayer.Context db = new DataAccessLayer.Context())
+{
+    var users = db.Users.ToList();
+    XDocument xdoc = new XDocument();
+    XElement people = new XElement("people");
+    foreach (var _user in users)
+    {
+        xmlusecase.XmlAddUser(_user, people);
+    }
+    xdoc.Add(people);
+    xdoc.Save("C:\\Users\\Deadcat\\RiderProjects\\Meth3\\Meth3\\XmlDirectory\\people.xml");
+    
+}
+
+using (DataAccessLayer.Context db = new DataAccessLayer.Context())
+{
+    var games = db.Games.ToList();
+    XDocument xdoc = new XDocument();
+    XElement people = new XElement("game");
+    foreach (var _game in games)
+    {
+        xmlusecase.XmlAddGame(_game, people);
+    }
+    xdoc.Add(people);
+    xdoc.Save("C:\\Users\\Deadcat\\RiderProjects\\Meth3\\Meth3\\XmlDirectory\\game.xml");
+    
+}
+
+
+#endregion
+#region Чтение из XML
+foreach (XmlNode node in
+         xmlusecase.XmlRead("C:\\Users\\Deadcat\\RiderProjects\\Meth3\\Meth3\\XmlDirectory\\people.xml"))
+{
+    Console.WriteLine(node.OuterXml);
+}
+#endregion

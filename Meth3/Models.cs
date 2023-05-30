@@ -61,43 +61,43 @@ public class Game : IDomainObject
     public List<UserGame> UserGames { get; set; } = new(); // Установка зависимости, в данном случае представление
                                                            // Game будет главной сущностью по отношению к UserGame
 
-    public override bool Equals(object? obj)
-    {
-        if (_equals(obj as Game))
-        {
-            return true;
-        }
-    
-        return false;
-    }
-    
-    protected bool _equals(Game other)
-    {
-        return ID == other.ID 
-               && Name == other.Name 
-               && Description == other.Description 
-               && Date_Release == other.Date_Release 
-               && Date_Update == other.Date_Update 
-               && Removed == other.Removed 
-               && Creator_id == other.Creator_id 
-               && Genre_id == other.Genre_id 
-               && Photogame_id == other.Photogame_id;
-    }
-    
-    public override int GetHashCode()
-    {
-        var hashCode = new HashCode();
-        hashCode.Add(ID);
-        hashCode.Add(Name);
-        hashCode.Add(Description);
-        hashCode.Add(Date_Release);
-        hashCode.Add(Date_Update);
-        hashCode.Add(Removed);
-        hashCode.Add(Creator_id);
-        hashCode.Add(Genre_id);
-        hashCode.Add(Photogame_id);
-        return hashCode.ToHashCode();
-    }
+    // public override bool Equals(object? obj)
+    // {
+    //     if (_equals(obj as Game))
+    //     {
+    //         return true;
+    //     }
+    //
+    //     return false;
+    // }
+    //
+    // protected bool _equals(Game other)
+    // {
+    //     return ID == other.ID 
+    //            && Name == other.Name 
+    //            && Description == other.Description 
+    //            && Date_Release == other.Date_Release 
+    //            && Date_Update == other.Date_Update 
+    //            && Removed == other.Removed 
+    //            && Creator_id == other.Creator_id 
+    //            && Genre_id == other.Genre_id 
+    //            && Photogame_id == other.Photogame_id;
+    // }
+    //
+    // public override int GetHashCode()
+    // {
+    //     var hashCode = new HashCode();
+    //     hashCode.Add(ID);
+    //     hashCode.Add(Name);
+    //     hashCode.Add(Description);
+    //     hashCode.Add(Date_Release);
+    //     hashCode.Add(Date_Update);
+    //     hashCode.Add(Removed);
+    //     hashCode.Add(Creator_id);
+    //     hashCode.Add(Genre_id);
+    //     hashCode.Add(Photogame_id);
+    //     return hashCode.ToHashCode();
+    // }
 }
 
 public class UserGame : IDomainObject

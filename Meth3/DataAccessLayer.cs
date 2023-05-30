@@ -171,18 +171,25 @@ public class DataAccessLayer
 
     public class JsonRepo<T> where T : class
     {
+        public List<T> repo;
+
+        public JsonRepo(List<T> list)
+        {
+            repo = list;
+        }
         public void JsonSaveData(List<T> repo)
         {
-            using (StreamWriter file = File.CreateText("data.json"))
+            using (StreamWriter file = File.CreateText("C:\\Users\\Deadcat\\RiderProjects\\Meth3\\Meth3\\Json\\data.json"))
             {
-                var Json = JsonConvert.SerializeObject(repo);
+                var Json = JsonConvert.SerializeObject(repo, Formatting.Indented );
                 file.Write(Json);
+                Console.WriteLine("Data has been saved to file");
             }
         }
 
         public List<T> JsonGetData()
         {
-            List<T> obj = JsonConvert.DeserializeObject<List<T>>(File.ReadAllText("data.json"));
+            List<T> obj = JsonConvert.DeserializeObject<List<T>>(File.ReadAllText("C:\\Users\\Deadcat\\RiderProjects\\Meth3\\Meth3\\Json\\data.json"));
             using (StreamReader file = File.OpenText("data.json"))
             {
                 JsonSerializer serializer = new JsonSerializer();

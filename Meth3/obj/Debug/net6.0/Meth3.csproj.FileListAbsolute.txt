@@ -58,3 +58,4 @@ C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\runtimes\win-x64\nat
 C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\Deadcat\RiderProjects\Meth3\Meth3\obj\Debug\net6.0\Meth3.csproj.CopyComplete
+C:\Users\Deadcat\RiderProjects\Meth3\Meth3\bin\Debug\net6.0\Newtonsoft.Json.dll

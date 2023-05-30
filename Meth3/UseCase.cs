@@ -2,7 +2,6 @@
 
 namespace Meth3;
 
-
 using System.Xml.Linq;
 
 public class UseCase
@@ -39,4 +38,39 @@ public class UseCase
         XmlNodeList nodes = xRoot?.SelectNodes("*");
         return nodes;
     }
+    public List<User> GetAllUsers()
+    {
+        using (DataAccessLayer.Context db = new DataAccessLayer.Context())
+        {
+            var users = db.Users.ToList();
+            return users;
+        }
+    }
+
+    public void AddGame(Game game)
+    {
+        using (DataAccessLayer.Context db = new DataAccessLayer.Context())
+        {
+            db.Games.Add(game);
+        }
+    }
+
+    public List<User> FindUsersWithSameGames()
+    {
+        using (DataAccessLayer.Context db = new DataAccessLayer.Context())
+        {
+            // var users = db.UserGames
+            //     .Include(p => p.User)
+            //     .Where(p => p.Game_ID == game.ID)
+            //     .ToList();
+            // return users;
+            var users = db.UserGames
+                .GroupBy(x => x.User)
+                .Where(g => g.Count() > 1)
+                .Select(g => g.Key)
+                .ToList();
+            return users;
+        }
+    }
+    
 }

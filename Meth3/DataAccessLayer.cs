@@ -25,40 +25,6 @@ public class DataAccessLayer
             optionsBuilder.UseSqlite("Data Source =meth3.db"); // Устанавливаем соединение с базой данных
         }
 
-        public List<User> GetAllUsers()
-        {
-            using (Context db = new Context())
-            {
-                var users = db.Users.ToList();
-                return users;
-            }
-        }
-
-        public void AddGame(Game game)
-        {
-            using (Context db = new Context())
-            {
-                db.Games.Add(game);
-            }
-        }
-
-        public List<User> FindUsersWithSameGames()
-        {
-            using (Context db = new Context())
-            {
-                // var users = db.UserGames
-                //     .Include(p => p.User)
-                //     .Where(p => p.Game_ID == game.ID)
-                //     .ToList();
-                // return users;
-                var users = db.UserGames
-                    .GroupBy(x => x.User)
-                    .Where(g => g.Count() > 1)
-                    .Select(g => g.Key)
-                    .ToList();
-                return users;
-            }
-        }
     }
     
 }

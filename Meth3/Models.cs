@@ -16,32 +16,32 @@ public class User : IDomainObject
     public List<UserGame> UserGames { get; set; } = new(); // Установка зависимости, в данном случае представление
                                                            // User будет главной сущностью по отношению к UserGame
 
-    public override bool Equals(object? obj)
-    {
-        if (_equals(obj as User))
-        {
-            return true;
-        }
-    
-        return false;
-    }
-    
-    protected bool _equals(User other)
-    {
-        return ID == other.ID 
-               && Login == other.Login 
-               && Password == other.Password 
-               && Email == other.Email 
-               && Date_create == other.Date_create 
-               && Date_update == other.Date_update 
-               && is_Blocked == other.is_Blocked 
-               && Right_ID == other.Right_ID;
-    }
-    
-    public override int GetHashCode()
-    {
-        return HashCode.Combine(ID, Login, Password, Email, Date_create, Date_update, is_Blocked, Right_ID);
-    }
+    // public override bool Equals(object? obj)
+    // {
+    //     if (_equals(obj as User))
+    //     {
+    //         return true;
+    //     }
+    //
+    //     return false;
+    // }
+    //
+    // protected bool _equals(User other)
+    // {
+    //     return ID == other.ID 
+    //            && Login == other.Login 
+    //            && Password == other.Password 
+    //            && Email == other.Email 
+    //            && Date_create == other.Date_create 
+    //            && Date_update == other.Date_update 
+    //            && is_Blocked == other.is_Blocked 
+    //            && Right_ID == other.Right_ID;
+    // }
+    //
+    // public override int GetHashCode()
+    // {
+    //     return HashCode.Combine(ID, Login, Password, Email, Date_create, Date_update, is_Blocked, Right_ID);
+    // }
 }
 
 public class Game : IDomainObject

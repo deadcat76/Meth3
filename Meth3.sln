@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meth3", "Meth3\Meth3.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMeth", "TestMeth\TestMeth.csproj", "{00DF096C-D23D-41CD-876B-91410B598AE8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebGame", "WebGame\WebGame.csproj", "{A28FD9C1-A58B-4998-B196-4B5277F86496}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{00DF096C-D23D-41CD-876B-91410B598AE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00DF096C-D23D-41CD-876B-91410B598AE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00DF096C-D23D-41CD-876B-91410B598AE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A28FD9C1-A58B-4998-B196-4B5277F86496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A28FD9C1-A58B-4998-B196-4B5277F86496}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A28FD9C1-A58B-4998-B196-4B5277F86496}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A28FD9C1-A58B-4998-B196-4B5277F86496}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

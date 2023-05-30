@@ -10,12 +10,12 @@ public class DataAccessLayer
 {
     public class Context : DbContext
     {
-        public DbSet<Right> Rights { get; set; } = null!;
-        public DbSet<User> Users { get; set; } = null!; // Создаем представление для Юзеров
-        public DbSet<Game> Games { get; set; } = null!; // Cоздаем представление для Игр
-        public DbSet<UserGame> UserGames { get; set; } = null!; // Связующая таблица для игр и юзеров
-        public DbSet<Achievement> Achievements { get; set; } = null!;
-        public DbSet<User_Achieve> UserAchieves { get; set; } = null!;
+        public DbSet<Right> Rights { get; set; }
+        public DbSet<User> Users { get; set; } // Создаем представление для Юзеров
+        public DbSet<Game> Games { get; set; } // Cоздаем представление для Игр
+        public DbSet<UserGame> UserGames { get; set; } // Связующая таблица для игр и юзеров
+        public DbSet<Achievement> Achievements { get; set; }
+        public DbSet<User_Achieve> UserAchieves { get; set; }
 
         public Context()
         {
@@ -25,7 +25,7 @@ public class DataAccessLayer
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source =meth3.db"); // Устанавливаем соединение с базой данных
+            optionsBuilder.UseSqlite("Data Source = meth3.db"); // Устанавливаем соединение с базой данных
         }
 
         public List<User> GetAllUsers()
@@ -42,6 +42,16 @@ public class DataAccessLayer
             using (Context db = new Context())
             {
                 db.Games.Add(game);
+            }
+        }
+
+        public User FindUserByEmail(string email)
+        {
+            using (Context db = new Context())
+            {
+                var user = db.Users.ToList().Where(e => e.Email == email);
+                return user.FirstOrDefault();
+
             }
         }
 
@@ -140,9 +150,92 @@ public class DataAccessLayer
             }
         }
     }
+    public class UserGameRepo : IRepository<UserGame>
+    {
+        private Context db;
+
+        public UserGameRepo(Context context)
+        {
+            this.db = context;
+        }
+        public IEnumerable<UserGame> GetAll(string table = null)
+        {
+            return db.UserGames.ToList();
+        }
+
+        public void Update(UserGame obj)
+        {
+            db.Entry(obj).State = EntityState.Modified;
+        }
+
+        public UserGame GetById(int ID)
+        {
+            return db.UserGames.Find(ID);
+        }
+
+        public void Add(UserGame obj)
+        {
+            db.UserGames.Add(obj);
+        }
+
+        public void Delete(int ID)
+        {
+            UserGame ug = db.UserGames.Find(ID);
+            if (ug != null)
+            {
+                db.UserGames.Remove(ug);
+            }
+        }
+    }
+    
     public class UnitOfWork : IDisposable
     {
         private Context db = new Context();
+
+        public GameRepo gameRepo;
+
+        public UserRepo userRepo;
+
+        public UserGameRepo usergameRepo;
+
+        public GameRepo Games
+        {
+            get
+            {
+                if (gameRepo == null)
+                {
+                    gameRepo = new GameRepo(db);
+                }
+
+                return gameRepo;
+            }
+        }
+
+        public UserRepo Users
+        {
+            get
+            {
+                if (userRepo == null)
+                {
+                    userRepo = new UserRepo(db);
+                }
+
+                return userRepo;
+            }
+        }
+
+        public UserGameRepo UserGames
+        {
+            get
+            {
+                if (usergameRepo == null)
+                {
+                    usergameRepo = new UserGameRepo(db);
+                }
+
+                return usergameRepo;
+            }
+        }
 
         private bool disposed = false;
 
@@ -177,9 +270,16 @@ public class DataAccessLayer
         {
             repo = list;
         }
+
+        public void GetType()
+        {
+            var type = typeof(T).ToString();
+            var type2 = type.Split('.')[1];
+            Console.WriteLine(type2);
+        }
         public void JsonSaveData(List<T> repo)
         {
-            using (StreamWriter file = File.CreateText("C:\\Users\\Deadcat\\RiderProjects\\Meth3\\Meth3\\Json\\data.json"))
+            using (StreamWriter file = File.CreateText($"C:\\Users\\Deadcat\\RiderProjects\\Meth3\\Meth3\\Json\\{typeof(T)}.json"))
             {
                 var Json = JsonConvert.SerializeObject(repo, Formatting.Indented );
                 file.Write(Json);
